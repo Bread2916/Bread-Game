@@ -126,18 +126,63 @@ public class Roleplay {
     public static void main(String[] args) {
 
         //Character Selection Screen With Stats and Description Displayed
+        System.out.println("Print: /"Hello World"/ ");
+        System.out.println("Welcome to the Bread Games !! Created by none other than Mr Tim/Thomas/Eric/Eerik/Amber's Foot Stool... ");
+        System.out.println("");
+        System.out.println("");
+        System.out.print("To Get Started, type: \"play\": ");
+        String playButton = s.nextLine();   //Gotta use an if/while statement so that if play or PLAY is typed, it progresses the text
 
+        System.out.println("Please Choose your character: ");
+        System.out.println("");
+        System.out.println("Archer Stats: ");
+        System.out.println("Health: " + archer.getHealth());
+        System.out.println("Base Damage: " + archer.getDamage());
+        System.out.println("Speed: " + archer.getSpeed()\n\n);
+        
+        System.out.println("Warrior Stats: ");
+        System.out.println("Health: " + warrior.getHealth());
+        System.out.println("Damage: " + warrior.getDamage());
+        System.out.println("Speed: " + warrior.getSpeed()\n\n);
+
+
+        System.out.println("Mage Stats: ");
+        System.out.println("Health: " + mage.getHealth());
+        System.out.println("Damage: " + mage.getDamage());
+        System.out.println("Speed: " + mage.getSpeed()\n\n);
+
+
+        System.out.println("Assassin Stats: ");
+        System.out.println("Health: " + assassin.getHealth());
+        System.out.println("Damage: " + assassin.getDamage());
+        System.out.println("Speed: " + assassin.getSpeed()\n\n);
+
+        System.out.print("Please choose your character (Archer, Warrior, Mage, or Assassin): ");
+        String chosenCharacter = s.nextLine();
+        System.out.println("");
+        System.out.println("");
+        System.out.println("Yippee !! You have chosen the " + chosenCharacter + " class !! ");
+        System.out.println("");
+        System.out.println("");
+        System.out.print("Now... NAME YOUR CHARACTER OI OI OI: ");
+        String characterName = s.nextLine();
+        System.out.println("");
+        System.out.println("");
+
+
+
+        
         //Story Line Choo Choo before first boss encounter
 
 
 
-
+        System.out.println("");
 
         //Objects of the Different Hero Roles !!
-        Hero archer = new Hero ("SSSniper Wolf", "Archer", 110, 20, 75, 0);
-        Hero warrior = new Hero ("Heroic Holly", "Warrior", 170, 5, 60, 0);
-        Hero mage = new Hero ("Magic Mike", "Mage", 80, 10, 50, 0);
-        Hero assassin = new Hero ("Sneaky Sam", "Assassin", 125, 12, 90, 0);
+        Hero archer = new Hero ("characterName", "Archer", 110, 20, 75, 0);
+        Hero warrior = new Hero ("characterName", "Warrior", 170, 5, 60, 0);
+        Hero mage = new Hero ("characterName", "Mage", 80, 10, 50, 0);
+        Hero assassin = new Hero ("characterName", "Assassin", 125, 12, 90, 0);
 
 
 
