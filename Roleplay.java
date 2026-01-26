@@ -335,7 +335,7 @@ class Enemy {
         double finalDamage = damage;
         System.out.println("\n==============================");
         finalDamage = damage + 10;
-        System.out.println("\n** " + name + " uses a SPECIAL ATTACK !! **");
+        System.out.println("\n** " + name + " uses their SPECIAL ATTACK !! **");
         System.out.println("\nIt deals " + (damage + 10) + " damage !!\n");
         target.takeDamage(finalDamage);
         System.out.println("==============================\n");
@@ -530,7 +530,7 @@ class Enemy {
             String fill23 = s.nextLine();
 
         // FIRST BATTLE
-            Enemy enemy1 = new Enemy("Spongebob", 50, 10, 40, 105);
+            Enemy enemy1 = new Enemy("Spongebob", 50, 15, 40, 105);
             int turnCount = 0;
             System.out.println();
 
@@ -581,7 +581,7 @@ class Enemy {
     }
 
         // SECOND BATTLE
-        Enemy enemy2 = new Enemy("Doc Krabby Pati", 100, 15, 65, 150);
+        Enemy enemy2 = new Enemy("Doc Krabby Pati", 100, 20, 65, 150);
         System.out.print("\nIt's " + enemy2.getName() + " !!\n");
 
         turnCount = 0;
@@ -638,7 +638,7 @@ class Enemy {
     }
 
         // THIRD BATTLE
-        Enemy enemy3 = new Enemy("The IT department D:", 120, 15, 70, 50);
+        Enemy enemy3 = new Enemy("The IT department D:", 120, 25, 70, 50);
         System.out.print("\n" + enemy3.getName() + " !!\n");
 
         turnCount = 0;
@@ -694,7 +694,7 @@ class Enemy {
         }
 
         // FOURTH BATTLE
-        Enemy enemy4 = new Enemy("Ma'am JanJan's Aura", 150, 20, 100, 200);
+        Enemy enemy4 = new Enemy("Ma'am JanJan's Aura", 150, 35, 100, 200);
         System.out.print("\nIt's the presence of a professor... IT'S " + enemy4.getName() + " !!\n");
 
         turnCount = 0;
@@ -748,7 +748,9 @@ class Enemy {
         }
 
         // FINAL BOSS BATTLE
-        Enemy boss = new Enemy("Showering", 250, 10, 67, 500);
+        Enemy boss = new Enemy("Showering", 250, 36
+        
+        , 67, 500);
         System.out.print("\nTHE FINAL BOSS OF ALL COMPSCI STUDENTS... " + boss.getName() + " !!\n");
 
         turnCount = 0;
@@ -802,9 +804,10 @@ class Enemy {
             System.out.println("2 - Exit Game D:");
             System.out.print("\nEnter your choice: ");
 
-            int choiceRestart = s.nextInt();
+            int choice = s.nextInt();
             s.nextLine();
-            if (choiceRestart == 1) playAgain = true;
+
+            if (choice == 1) playAgain = true;
                 else {
                     playAgain = false;
                     System.out.println("\nExiting game, thanks for playing :D");
@@ -826,3 +829,4 @@ class Enemy {
             }
         }
     }
+//sugoi
