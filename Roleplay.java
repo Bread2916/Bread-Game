@@ -31,11 +31,12 @@ class Hero {
     }
 
     //Setters
-    public void setName() { this.name = name; }
-    public void setJob() { this.job = job; }
+    public void setName(String name) { this.name = name; }
+    public void setJob(String job) { this.job = job; }
     public void setHealth(double health) { this.health = health; }
-    public void setSpeed() { this.speed = speed; }
-    public void setExp() { this.exp = exp; }
+    public void setDamage (double damage) {this.damage = damage; }
+    public void setSpeed(double speed) { this.speed = speed; }
+    public void setExp(double exp) { this.exp = exp; }
 
     //Getters
     public String getName() { return name; }
@@ -45,7 +46,7 @@ class Hero {
     public double getSpeed() { return speed; }
     public double getExp() { return exp; }
 
-    //Hero-Gaining Exp but unsure
+    //Hero-Gaining Exp feature with SETTER
     public void gainExp(double amount, Scanner s) {
         exp += amount;
         System.out.println("\nYou gained " + amount + " EXP! Total EXP: " + exp);
@@ -83,19 +84,20 @@ class Hero {
                 }
             }
 
+            //Me using SETTERS for the updating of stats from the level up !!
             switch (choice) {
                 case 1 -> {
-                    health += 10;
+                    setHealth(getHealth() + 10);
                     maxHealth += 10;  // update max health permanently
                     System.out.println("Health boosted by +10!");
                 }
                 case 2 -> {
-                    damage += 5;
+                    setDamage(getDamage() + 5);
                     baseDamage += 5;  // update base damage permanently
                     System.out.println("Damage boosted by +5!");
                 }
                 case 3 -> {
-                    speed += 5;
+                    setSpeed(getSpeed() + 5);
                     baseSpeed += 5;   // update base speed permanently
                     System.out.println("Speed boosted by +5!");
                 }
@@ -105,7 +107,7 @@ class Hero {
         }
     }
 
-    // Reset hero stats for each battle
+    // Reset hero stats for each battle so it doesn't stack
     public void resetForBattle() {
         this.health = maxHealth;  // restore health
         this.damage = baseDamage; // restore damage
@@ -164,8 +166,8 @@ public void basicAttack(Enemy target) {
 public void specialAttack1(Enemy target, int turnCount) {
     System.out.println("\n==============================");
             if (turnCount < special1NextTurn) {
-            System.out.println("Special Attack 2 is on cooldown !! (" + (special1NextTurn - turnCount) + " turn(s) left !!");
-            return;
+                System.out.println("Special Attack 2 is on cooldown !! (" + (special1NextTurn - turnCount) + " turn(s) left !!");
+                return;
         }
     double finalDamage = damage;
 
@@ -353,18 +355,19 @@ class Enemy {
             move = s.nextInt();
             s.nextLine();
 
-        if (move >= 1 && move <= 4) break;
+        if (move >= 1 && move <= 4) {
+            break;
+        }
             System.out.println("Invalid move! Try again.");
+        }
+        // Execute the attack
+        switch (move) {
+            case 1 -> player.basicAttack(enemy);
+            case 2 -> player.specialAttack1(enemy, turnCount);
+            case 3 -> player.specialAttack2(enemy, turnCount);
+            case 4 -> player.ultimateAbility(enemy, turnCount);
+        }
     }
-
-    // Execute the attack
-    switch (move) {
-        case 1 -> player.basicAttack(enemy);
-        case 2 -> player.specialAttack1(enemy, turnCount);
-        case 3 -> player.specialAttack2(enemy, turnCount);
-        case 4 -> player.ultimateAbility(enemy, turnCount);
-    }
-}
 
         static void enemyTurn(Enemy enemy, Hero player, int turnCount){
             System.out.println("Enemy's turn");
@@ -409,6 +412,7 @@ class Enemy {
             System.out.print("\nPlease choose your role and remember, pick wisely !!  ->");
             String fill6 = s.nextLine();
 
+            //OBJECTS
             Hero archer = new Hero(characterName, "Archer", 110, 20, 75, 0);
             Hero warrior = new Hero(characterName, "Warrior", 170, 5, 60, 0);
             Hero mage = new Hero(characterName, "Mage", 80, 10, 50, 0);
@@ -452,7 +456,7 @@ class Enemy {
                 chosenCharacter.equals("assassin")) {
                 break;
             } else {
-                System.out.println("Wrong input. Try again bruh.\n");
+                System.out.println("\nWrong input. Try again bruh.\n");
             }
         }
 
