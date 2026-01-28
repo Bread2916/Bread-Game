@@ -748,7 +748,7 @@ class Enemy {
         }
 
         // FINAL BOSS BATTLE
-        Enemy boss = new Enemy("Showering", 250, 36
+        Enemy boss = new Enemy("Showering", 250, 30
         
         , 67, 500);
         System.out.print("\nTHE FINAL BOSS OF ALL COMPSCI STUDENTS... " + boss.getName() + " !!\n");
@@ -791,41 +791,33 @@ class Enemy {
     }
 
         // POST-BATTLE AND CREDITS (?)
-        if (player.getHealth() > 0) {
-            s.nextLine();
-            System.out.print("\nAncestor Spirit: CONGRATULATIONS, you have avoided " + boss.getName() + " !!  ->");
-            String fill41 = s.nextLine();
-            System.out.print("\nIn fact, you've beaten the game... Well Done !!  ->");
-            String fill42 = s.nextLine();
-            System.out.print("\nIf you wanna play it again and try the other roles...  ->");
-            String fill43 = s.nextLine();
-
-            System.out.println("1 - Restart Game");
-            System.out.println("2 - Exit Game D:");
-            System.out.print("\nEnter your choice: ");
-
-            int choice = s.nextInt();
-            s.nextLine();
-
-            if (choice == 1) playAgain = true;
-                else {
-                    playAgain = false;
-                    System.out.println("\nExiting game, thanks for playing :D");
-                }
-        } else {
-            System.out.println("Awwwww, you dead");
-            System.out.println("Do you want to restart the game?");
-            System.out.println("1 - Restart Game");
-            System.out.println("2 - Exit Game D:");
-            System.out.print("\nEnter your choice: ");
-        }
-        int choice = s.nextInt();
+// POST-BATTLE AND END GAME MENU
+    if (player.getHealth() > 0) {
+    s.nextLine();
+        System.out.print("\nAncestor Spirit: CONGRATULATIONS, you have avoided " + boss.getName() + " !!  ->");
         s.nextLine();
-            if (choice == 1) playAgain = true;
-                else {
-                    playAgain = false;
-                    System.out.println("\nExiting game, thanks for playing :D");
+        System.out.print("\nIn fact, you've beaten the game... Well Done !!  ->");
+        s.nextLine();
+    } else {
+    System.out.println("\nYou were defeated...");
+    }
+
+    // UNIVERSAL RESTART / EXIT MENU
+    System.out.println("\nWhat would you like to do?");
+    System.out.println("1 - Restart Game");
+    System.out.println("2 - Exit Game D:");
+    System.out.print("Enter your choice: ");
+
+    int choice = s.nextInt();   
+    s.nextLine();
+
+    if (choice == 1) {
+        playAgain = true;
+    } else {
+        playAgain = false;
+    System.out.println("\nExiting game, thanks for playing :D");
                 }
+
             }
         }
     }
